@@ -79,12 +79,24 @@ int main(void)
  *    of the benefits and drawbacks of using 8-bit variables in an 8-bit
  *    microcontroller?
  * 
+ Since the SW2 is unsigned it can hold up until the maximum value of 255. The benefits of 
+ using 8 bit is that it is simple to use and understands and uses less power compared to 
+ the 32 bit one and over. provide more battery life. The drawbacks of using 
+ an 8 bit microcontroller is that it will usually take more instructions due to less data busses and 
+ have less memory compared to the others.
+
  * 2. The constant 'maxCount' is defined using a declaration similar to that
  *    used for the SW2Count variable, but with the 'const' prefix added in the
  *    declaration. Can you think of some advantages of declaring a constant like
  *    this, using a separate statement above the main code, rather than just
  *    embedding the value of the constant where it is needed in the code?
- * 
+ *  
+ The advantage of declaring the prefix 'const' in a seperate statment above the main code 
+ is to make the program easier for others to follow and you have declare it before using the 
+ variable. For example, putting the statement shows other people and the program that the maxcount 
+ is set at a certain value and can't be changed from it's set value. 
+
+
  * 3. This program should light LED D3 every time SW2 is pressed, and light
  *    LED D4 once the count reaches 50. Try it, and count how many times you
  *    have to press the button until LED D4 turns on. SW3 resets the count so
@@ -92,7 +104,10 @@ int main(void)
  * 
  *    Did your count reach 50? Can you describe what the program is doing?
  *    (Hint: try pressing and releasing the button at different rates of speed.)
- * 
+ *  
+ No my count did not reach 50. Every time I changed the speed of me tapping the buttom it changes 
+  the amount required to light up LED D4
+
  * 4. Modify the second 'if' structure to add the else block, as shown below:
 
         if(SW2Count >= maxCount)
@@ -109,7 +124,9 @@ int main(void)
  *    higher than maxCount. If LED D4 turns off, what can you infer about the
  *    value of the SW2Count variable? Can you explain what happens to the
  *    SW2Count variable as the SW2 button is held?
- * 
+ *
+ LED D4 turns off indicates that it has reached the max count of 50 then it resets and hits 50 again 
+
  * 5. We can set a limit on the SW2Count variable by encapsulating its increment
  *    statement inside a conditional statement. In your program, replace the
  *    line 'SW2Count = SW2Count + 1;' with the code, below:
@@ -125,6 +142,8 @@ int main(void)
  *    value that the SW2Count variable will reach? How does this affect the
  *    operation of LED D4 when SW2 is held?
  *
+ The maximum value that SW2Count will reach is 225. 
+
  * 6. The fundamental problem with this program is that pushbutton SW2 is sensed
  *    in each cycle of the loop, and if its state is read as pressed, another
  *    count is added to the SW2Count variable. The program needs to be made to
@@ -162,7 +181,7 @@ int main(void)
  *    is set to true before a count is added. The following if structure resets
  *    SW2Pressed to false when the button is released. Try the code to verify
  *    that it works.
- * 
+ * it Works
  *    The conditional statement in the first if condition can also be written:
 
         if(SW2 == 0 && !SW2Pressed)
@@ -217,19 +236,21 @@ int main(void)
  *    second palyer wins. Use a logical condition statement to reset the game
  *    by clearing the count and turning off the LEDs if either SW3 or SW4 is
  *    pressed.
- * 
+ * Code shown from lines 46-112
  * 2. Use your knowledge of Boolean variables and logical conditions to simulate
  *    a toggle button. Each new press of the toggle button will 'toggle' an LED
  *    to its opposite state. (Toggle buttons are commonly used as push-on, 
  *    push-off power buttons in digital devices.)
  * 
+ Code shown from lines 115-127.
+
  * 3. A multi-function button can be used to enable one action when pressed, and
  *    a second or alternate action when held. A variable that counts loop cycles
  *    can be used to determine how long a button is held (just as the first
  *    program unitentionally did, because of the loop structure). Make a
  *    multifunction button that lights one LED when a button is pressed, and
  *    lights a second LED after the button is held for more that one second.
- * 
+ * lines 130-156.
  * 4. Do your pushbuttons bounce? Switch bounce is the term that describes
  *    switch contacts repeatedly closing and opening before settling in their
  *    final (usually closed) state. Switch bounce in a room's light switch is
@@ -240,9 +261,10 @@ int main(void)
  *    to reset the count and turn off the LEDs so that the test can be repeated.
  *    To determine if your switches bounce, try pressing them at various speeds
  *    and using different amounts of force.
- * 
+ * Ye
  * 5. Did your pushbuttons bounce? Can you think of a technique similar to the
  *    multi-function button that could be implemented to make your program
  *    ignore switch bounces. Multiple switch activations within a 50ms time span
  *    might indicate switch bounce and can be safely ignored.
+ Complete
  */
